@@ -6,6 +6,6 @@ const apiClient = axios.create({
 
 export default {
   async getAll() {
-    await apiClient.get('/todos')
+    return await apiClient.get('/todos')
   }
 }
