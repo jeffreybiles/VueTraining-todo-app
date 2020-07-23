@@ -11,10 +11,11 @@
     </button>
     <ul>
       <li v-for="todo in filteredTodos"
-          :key="todo.id" 
-          :class="{'done': todo.done}"
-          @click="toggleDone(todo)">
-        {{todo.text}}
+          :key="todo.id">
+        <span @click="toggleDone(todo)"
+              :class="{'done': todo.done}">
+          {{todo.text}}
+        </span>
         <button @click="deleteTodo(todo)">Delete</button>
       </li>
     </ul>
@@ -48,6 +49,7 @@
     methods: {
       deleteTodo(todo) {
         this.todos = this.todos.filter(t => todo.id != t.id)
+        TodoService.delete(todo)
       },
       toggleDone(todo) {
         todo.done = !todo.done

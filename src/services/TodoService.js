@@ -13,5 +13,8 @@ export default {
   },
   create(todo) {
     return apiClient.post(`/todos`, todo)
+  },
+  delete(todo) {
+    return apiClient.delete(`/todos/${todo.id}`)
   }
 }
