@@ -10,22 +10,23 @@
       {{isFilteringTodos ? 'Stop' : 'Start'}} filtering todos
     </button>
     <ul>
-      <li v-for="todo in filteredTodos"
-          :key="todo.id">
-        <span @click="toggleDone(todo)"
-              :class="{'done': todo.done}">
-          {{todo.text}}
-        </span>
-        <button @click="deleteTodo(todo)">Delete</button>
-      </li>
+      <TodoItem v-for="todo in filteredTodos"
+                :key="todo.id"
+                :todo="todo"
+                :toggleDone="toggleDone"
+                :deleteTodo="deleteTodo" />
     </ul>
   </div>
 </template>
 
 <script>
   import TodoService from '@/services/TodoService'
+  import TodoItem from '@/components/TodoItem.vue';
   
   export default {
+    components: {
+      TodoItem
+    },
     data() {
       return {
         newTodoText: '',
@@ -75,10 +76,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .done {
-    text-decoration: line-through;
-  }
-
   p, li, div {
     font-size: 24px;
   }
