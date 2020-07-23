@@ -53,19 +53,18 @@
         todo.done = !todo.done
         TodoService.update(todo)
       },
-      addTodo(){
+      async addTodo(){
         this.error = ''
         
         if(this.newTodoText.trim() == '') {
           this.error = 'Todo cannot be blank'
         } else {
-          let newTodo = {
+          let newTodo = await TodoService.create({
             text: this.newTodoText,
             done: false
-          }
+          })
           this.todos.push(newTodo)
           this.newTodoText = ''
-          TodoService.create(newTodo)
         }
       }
     }
