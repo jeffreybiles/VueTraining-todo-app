@@ -45,7 +45,7 @@
     },
     methods: {
       deleteTodo(todo) {
-        let index = this.todos.indexOf(t => t == todo)
+        let index = this.todos.findIndex(t => t == todo)
         this.todos.splice(index, 1)
       },
       addTodo(){
