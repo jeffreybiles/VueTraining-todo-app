@@ -2,7 +2,7 @@
   <li>
     <span v-if="isEditing">
       <input v-model="textCopy" />
-      <button @click="isEditing = false">Cancel</button>
+      <button @click="cancelChanges">Cancel</button>
       <button @click="saveChanges">Save</button>
     </span>
     <span v-else>
@@ -30,6 +30,10 @@
         this.todo.text = this.textCopy
         await TodoService.update(this.todo)
         this.isEditing = false
+      },
+      cancelChanges(){
+        this.isEditing = false
+        this.textCopy = this.todo.text
       }
     },
     props: {
