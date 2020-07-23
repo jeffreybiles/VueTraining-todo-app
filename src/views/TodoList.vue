@@ -22,18 +22,19 @@
 </template>
 
 <script>
+  import TodoService from '@/services/TodoService'
+  
   export default {
     data() {
       return {
         newTodoText: '',
         error: '',
         isFilteringTodos: false,
-        todos: [
-          {text: 'Do dishes', done: false},
-          {text: 'Create Videos', done: false},
-          {text: 'Answer questions', done: true}
-        ]
+        todos: []
       }
+    },
+    async created(){
+      this.todos = await TodoService.getTodos();
     },
     computed: {
       todosRemaining(){
