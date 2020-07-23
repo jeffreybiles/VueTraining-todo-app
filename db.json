@@ -1,0 +1,7 @@
+{
+  "todos": [
+    {"text": "Do dishes", "done": false},
+    {"text": "Create Videos", "done": false},
+    {"text": "Answer questions", "done": true}
+  ]
+}
