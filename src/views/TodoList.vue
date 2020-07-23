@@ -11,7 +11,7 @@
     </button>
     <ul>
       <li v-for="todo in filteredTodos"
-          :key="todo.text" 
+          :key="todo.id" 
           :class="{'done': todo.done}"
           @click="todo.done = true">
         {{todo.text}}
