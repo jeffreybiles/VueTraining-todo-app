@@ -1,8 +1,8 @@
 <template>
   <li>
     <span v-if="isEditing">
-      <input v-model="todo.text" />
-      <button>Cancel</button>
+      <input v-model="textCopy" />
+      <button @click="isEditing = false">Cancel</button>
       <button>Save</button>
     </span>
     <span v-else>
@@ -20,7 +20,8 @@
   export default {
     data(){
       return {
-        isEditing: false
+        isEditing: false,
+        textCopy: this.todo.text
       }
     },
     props: {
