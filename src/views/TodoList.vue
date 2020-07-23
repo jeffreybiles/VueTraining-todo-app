@@ -60,11 +60,13 @@
         if(this.newTodoText.trim() == '') {
           this.error = 'Todo cannot be blank'
         } else {
-          this.todos.push({
+          let newTodo = {
             text: this.newTodoText,
             done: false
-          })
-          this.newTodoText = ''            
+          }
+          this.todos.push(newTodo)
+          this.newTodoText = ''
+          TodoService.create(newTodo)
         }
       }
     }

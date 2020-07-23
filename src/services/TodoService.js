@@ -10,5 +10,8 @@ export default {
   },
   update(todo) {
     return apiClient.put(`/todos/${todo.id}`, todo)
+  },
+  create(todo) {
+    return apiClient.post(`/todos`, todo)
   }
 }
