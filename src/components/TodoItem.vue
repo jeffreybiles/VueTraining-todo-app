@@ -3,7 +3,7 @@
     <span v-if="isEditing">
       <input v-model="textCopy" />
       <button @click="isEditing = false">Cancel</button>
-      <button>Save</button>
+      <button @click="saveChanges">Save</button>
     </span>
     <span v-else>
       <span @click="toggleDone(todo)"
@@ -17,11 +17,19 @@
 </template>
 
 <script>
+  import TodoService from '@/services/TodoService'
   export default {
     data(){
       return {
         isEditing: false,
         textCopy: this.todo.text
+      }
+    },
+    methods: {
+      async saveChanges(){
+        this.todo.text = this.textCopy
+        await TodoService.update(this.todo)
+        this.isEditing = false
       }
     },
     props: {
