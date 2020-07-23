@@ -5,7 +5,7 @@ const apiClient = axios.create({
 })
 
 export default {
-  async getTodos() {
+  async getAll() {
     await apiClient.get('/todos')
   }
 }

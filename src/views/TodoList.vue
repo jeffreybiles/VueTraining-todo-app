@@ -34,7 +34,7 @@
       }
     },
     async created(){
-      let response = await TodoService.getTodos();
+      let response = await TodoService.getAll();
       this.todos = response.data
     },
     computed: {
