@@ -47,8 +47,7 @@
     },
     methods: {
       deleteTodo(todo) {
-        let index = this.todos.findIndex(t => t == todo)
-        this.todos.splice(index, 1)
+        this.todos = this.todos.filter(t => todo.id != t.id)
       },
       toggleDone(todo) {
         todo.done = !todo.done
