@@ -1,7 +1,19 @@
 {
   "todos": [
-    {"id": "1", "text": "Do dishes", "done": false},
-    {"id": "2", "text": "Create Videos", "done": false},
-    {"id": "3", "text": "Answer questions", "done": true}
+    {
+      "id": "1",
+      "text": "Do dishes",
+      "done": false
+    },
+    {
+      "id": "2",
+      "text": "Create Videos",
+      "done": true
+    },
+    {
+      "id": "3",
+      "text": "Answer questions",
+      "done": false
+    }
   ]
 }

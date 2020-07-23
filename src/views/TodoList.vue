@@ -13,7 +13,7 @@
       <li v-for="todo in filteredTodos"
           :key="todo.id" 
           :class="{'done': todo.done}"
-          @click="todo.done = true">
+          @click="toggleDone(todo)">
         {{todo.text}}
         <button @click="deleteTodo(todo)">Delete</button>
       </li>
@@ -49,6 +49,10 @@
       deleteTodo(todo) {
         let index = this.todos.findIndex(t => t == todo)
         this.todos.splice(index, 1)
+      },
+      toggleDone(todo) {
+        todo.done = !todo.done
+        TodoService.update(todo)
       },
       addTodo(){
         this.error = ''

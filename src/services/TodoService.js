@@ -7,5 +7,8 @@ const apiClient = axios.create({
 export default {
   getAll() {
     return apiClient.get('/todos')
+  },
+  update(todo) {
+    return apiClient.put(`/todos/${todo.id}`, todo)
   }
 }
