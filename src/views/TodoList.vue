@@ -17,7 +17,7 @@
                 :key="todo.id"
                 :todo="todo"
                 :toggleDone="toggleDone"
-                :deleteTodo="deleteTodo" />
+                :toggleArchive="toggleArchive" />
     </ul>
   </div>
 </template>
@@ -65,9 +65,9 @@
       }
     },
     methods: {
-      deleteTodo(todo) {
-        this.todos = this.todos.filter(t => todo.id != t.id)
-        TodoService.delete(todo)
+      toggleArchive(todo) {
+        todo.archived = !todo.archived
+        TodoService.update(todo)
       },
       toggleDone(todo) {
         todo.done = !todo.done

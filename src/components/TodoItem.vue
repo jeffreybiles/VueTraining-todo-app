@@ -11,8 +11,8 @@
         {{todo.text}}
       </span>
       <button @click="isEditing = true">Edit</button>
+      <button @click="toggleArchive(todo)">{{todo.archived ? 'Unarchive' : 'Archive'}}</button>
     </span>
-    <button @click="deleteTodo(todo)">Delete</button>
   </li>
 </template>
 
@@ -45,7 +45,7 @@
         type: Function,
         required: true
       },
-      deleteTodo: {
+      toggleArchive: {
         type: Function,
         required: true
       }

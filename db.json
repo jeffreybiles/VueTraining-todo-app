@@ -4,19 +4,19 @@
       "id": "1",
       "text": "Do dishes",
       "done": false,
-      "archived": true
+      "archived": false
     },
     {
       "id": "2",
       "text": "Create Videos",
       "done": true,
-      "archived": false
+      "archived": true
     },
     {
       "id": "3",
       "text": "Answer questions",
       "done": true,
-      "archived": false
+      "archived": true
     },
     {
       "text": "Cool New Todo",
