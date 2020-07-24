@@ -3,22 +3,26 @@
     {
       "id": "1",
       "text": "Do dishes",
-      "done": false
+      "done": false,
+      "archived": true
     },
     {
       "id": "2",
       "text": "Create Videos",
-      "done": true
+      "done": true,
+      "archived": false
     },
     {
       "id": "3",
       "text": "Answer questions",
-      "done": false
+      "done": true,
+      "archived": false
     },
     {
       "text": "Cool New Todo",
       "done": false,
-      "id": "_fz6RFa"
+      "id": "_fz6RFa",
+      "archived": false
     }
   ]
 }

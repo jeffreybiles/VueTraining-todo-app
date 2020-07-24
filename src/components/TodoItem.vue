@@ -7,7 +7,7 @@
     </span>
     <span v-else>
       <span @click="toggleDone(todo)"
-            :class="{'done': todo.done}">
+            :class="{'done': todo.done, 'archived': todo.archived}">
         {{todo.text}}
       </span>
       <button @click="isEditing = true">Edit</button>
@@ -56,5 +56,8 @@
 <style lang="scss" scoped>
   .done {
     text-decoration: line-through;
+  }
+  .archived {
+    opacity: 0.5;
   }
 </style>

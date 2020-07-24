@@ -6,8 +6,11 @@
     </form>
     <div class="error">{{error}}</div>
     <p>{{todosRemaining}} incomplete todos remaining</p>
-    <button @click="isFilteringTodos = !isFilteringTodos">
-      {{isFilteringTodos ? 'Stop' : 'Start'}} filtering todos
+    <button @click="hideComplete = !hideComplete">
+      {{hideComplete ? 'Stop' : 'Start'}} hiding completed todos
+    </button>
+    <button @click="hideArchived = !hideArchived">
+      {{hideArchived ? 'Stop' : 'Start'}} hiding archived todos
     </button>
     <ul>
       <TodoItem v-for="todo in filteredTodos"
@@ -31,7 +34,8 @@
       return {
         newTodoText: '',
         error: '',
-        isFilteringTodos: false,
+        hideComplete: false,
+        hideArchived: false,
         todos: []
       }
     },
@@ -41,10 +45,23 @@
     },
     computed: {
       todosRemaining(){
-        return this.todos.filter(t => !t.done).length
+        return this.incompleteTodos.length
+      },
+      incompleteTodos(){
+        return this.todos.filter(t => !t.done)
       },
       filteredTodos(){
-        return this.isFilteringTodos ? this.todos.filter(t => !t.done) : this.todos
+        let todos = this.todos;
+
+        if(this.hideComplete) {
+          todos = todos.filter(t => !t.done)
+        }
+
+        if(this.hideArchived) {
+          todos = todos.filter(t => !t.archived)
+        }
+
+        return todos
       }
     },
     methods: {
